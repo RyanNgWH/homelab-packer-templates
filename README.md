@@ -55,13 +55,25 @@ Upon completion, a VM template will be created in your proxmox instance. When cl
 
 # Configuration
 
+## Preseed
+
+Update the default installation variable as desired. Some common variables include:
+
+- `netcfg/get_hostname` - VM hostname
+- `netcfg/get_domain` - VM network domain
+- `passwd/root-password-crypted` - Root account password
+- `clock-setup/ntp-server` - NTP server
+- `preseed/late_command` - Replace with your root ssh key to allow packer to ssh into the VM (remember to update the packer ssh keyfile variable in `config.pkrvars.hcl` too)
+
+## Packer
+
 All variables used in build image can be found in `example.config.pkrvars.hcl`. There are 2 types of variables (**required** & **optional**).
 
-## Required variables
+### Required variables
 
 Located at the top of the file, these variables have to be manually populated as they do not have any default values.
 
-## Optional variables
+### Optional variables
 
 Located after the required variables, these variables are prepopulated with the default variables in `example.config.pkrvars.hcl`. To override the default values, simple replace the values in the file. Default values will be used if these variables are omitted.
 
