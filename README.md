@@ -2,9 +2,9 @@
 
 # Packer Proxmox Debian 12 Build
 
-This project contains the Packer build configuration for the Proxmox using a Debian 12 image.
+This project contains the Packer build configuration for Proxmox using a Debian 12 image.
 
-This utilises the Packer `proxmox-iso` plugin which will create the VM on proxmox. It then sends a `boot-command` to the Debian installer to execute the automated install using the `preseed.cfg` configuration file.
+It utilises the Packer `proxmox-iso` plugin which will create the VM on proxmox before sending a `boot-command` to the Debian installer to execute the automated install using the `preseed.cfg` configuration file.
 
 > Packer temporaily sets up a HTTP server on the local system to deliver the `preseed.cfg` file to the Debian VM.
 >
