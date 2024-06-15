@@ -67,7 +67,7 @@ Update the default installation variable as desired. Some common variables inclu
 
 ## Packer
 
-All variables used in build image can be found in `example.config.pkrvars.hcl`. There are 2 types of variables (**required** & **optional**).
+All variables used in the build image can be found in `example.config.pkrvars.hcl`. There are 2 types of variables (**required** & **optional**).
 
 ### Required variables
 
