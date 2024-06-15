@@ -51,11 +51,7 @@ packer build -varfile=config.pkrvars.hcl .
 
 > Replace `config.pkrvars.hcl` with your variables file
 
-4. Due to limitations of the API, some settings must be manually set after the VM template is created
-   - Extra CPU flags
-   - Qemu Agent options
-
-Upon completion, a VM template will be created in your proxmox instance. When cloning the VM template, use cloud-init to add an SSH key or you will be locked out of the VM. This template only contains a root user whose password is locked.
+4. Upon completion, a VM template will be created in your proxmox instance. When cloning the VM template, use cloud-init to add an SSH key or you will be locked out of the VM. This template only contains a root user whose password is locked.
 
 # Configuration
 
@@ -82,6 +78,10 @@ Located at the top of the file, these variables have to be manually populated as
 Located after the required variables, these variables are prepopulated with the default variables in `example.config.pkrvars.hcl`. To override the default values, simple replace the values in the file. Default values will be used if these variables are omitted.
 
 # Limitations
+
+## CPU flags & Qemu guest agent TRIM
+
+These variables should be set but are not supported by the provider (as of `v1.1.8`). However, these can be automated using Opentofu and therefore, are not included in the usage instructions
 
 ## VirtIO RNG
 
