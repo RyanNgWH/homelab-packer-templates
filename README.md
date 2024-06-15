@@ -51,6 +51,10 @@ packer build -varfile=config.pkrvars.hcl .
 
 > Replace `config.pkrvars.hcl` with your variables file
 
+4. Due to limitations of the API, some settings must be manually set after the VM template is created
+   - Extra CPU flags
+   - Qemu Agent options
+
 Upon completion, a VM template will be created in your proxmox instance. When cloning the VM template, use cloud-init to add an SSH key or you will be locked out of the VM. This template only contains a root user whose password is locked.
 
 # Configuration
