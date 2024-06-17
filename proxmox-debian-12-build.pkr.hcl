@@ -14,7 +14,7 @@ packer {
 
 # Local variables
 locals {
-  packer_timestamp = formatdate("[YYYY-MM-DD hh:mm ZZZ]", timestamp())
+  packer_timestamp = formatdate("YYYY-MM-DD hh:mm ZZZ", timestamp())
 }
 
 # Resource definition for the VM template
@@ -29,6 +29,7 @@ source "proxmox-iso" "debian-12" {
   node = "${var.proxmox_node}"
   vm_name = "${var.vm_name}"
   vm_id = "${var.vm_id}"
+  tags = "packer"
 
   # CPU configuration
   cpu_type = "${var.vm_cpu_type}"
@@ -89,7 +90,7 @@ source "proxmox-iso" "debian-12" {
 
   # Template configuration
   template_name = "${var.template_name}"
-  template_description = "[Packer] ${local.packer_timestamp} ${var.template_description}"
+  template_description = "[Packer] ${var.template_description}\n\nCreated on: ${local.packer_timestamp} "
 
   cloud_init = "${var.template_cloud_init}"
   cloud_init_storage_pool = "${var.template_cloud_init_storage_pool}"
@@ -120,10 +121,16 @@ build {
     script = "scripts/setup.sh"
   }
 
-  # Copy cloud-init configuration file to VM Template
+  # Copy cloud-init pve configuration file to VM Template
   provisioner "file" {
     source = "files/99_pve.cfg"
     destination = "/etc/cloud/cloud.cfg.d/99_pve.cfg"
+  }
+
+  # Copy cloud-init default user configuration file to VM Template
+  provisioner "file" {
+    source = "files/50_default_user.cfg"
+    destination = "/etc/cloud/cloud.cfg.d/50_default_user.cfg"
   }
 
   # Configure cloud-init

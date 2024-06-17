@@ -46,12 +46,12 @@ packer init .
 3. Run the following command to build the image
 
 ```
-packer build -varfile=config.pkrvars.hcl .
+packer build --var-file=config.pkrvars.hcl .
 ```
 
 > Replace `config.pkrvars.hcl` with your variables file
 
-4. Upon completion, a VM template will be created in your proxmox instance. When cloning the VM template, use cloud-init to add an SSH key or you will be locked out of the VM. This template only contains a root user whose password is locked.
+4. Upon completion, a VM template will be created in your proxmox instance. A default ansible user is available for all users for ansible provisioning. Edit `files/50_default_user.cfg` to modify the default user.
 
 # Configuration
 
