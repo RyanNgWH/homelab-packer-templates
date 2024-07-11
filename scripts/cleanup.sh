@@ -16,6 +16,9 @@ cat /dev/null > /var/log/wtmp 2>/dev/null
 passwd --expire root
 passwd -l root
 
+# Clear network interface configuration
+sed -i -r '/(.*enp.*|.*address.*|.*gateway.*|.*dns.*|.*primary.*)/d' /etc/network/interfaces
+
 # Clear User History
 history -c
 unset HISTFILE
