@@ -26,7 +26,7 @@ boot_command = [
   "debconf/frontend=noninteractive <wait>",
   "console-setup/ask_detect=false <wait>",
   "netcfg/disable_autoconfig=true <wait>",
-  "netcfg/get_ipaddress=172.28.20.254/24 <wait>",
+  "netcfg/get_ipaddress=172.28.20.99/24 <wait>",
   "netcfg/get_gateway=172.28.20.1 <wait>",
   "netcfg/get_nameservers=172.28.20.1 <wait>",
   "<f10><wait>"]
