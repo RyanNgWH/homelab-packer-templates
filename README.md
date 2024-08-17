@@ -20,11 +20,25 @@ The following software must be installed on the local machine before Packer can 
 
 ## Proxmox
 
-An API token with the following permissions have to be created on your Proxmox instance. Stricter permissions might be possible but this build has only been tested with the following proxmox roles:
+An API token with the following permissions has to be created on your Proxmox instance. Stricter permissions might be possible but these templates have only been tested with the following proxmox privileges:
 
-- **PVEVMAdmin** - `/vms`
-- **PVEDatastoreAdmin** - `/storage`
-- **PVESDNUser** - `/sdn/zones`
+- Datastore.Allocate
+- Datastore.AllocateSpace
+- Datastore.AllocateTemplate
+- Datastore.Audit
+- SDN.Audit
+- SDN.Use
+- VM.Allocate
+- VM.Audit
+- VM.Config.CDROM
+- VM.Config.CPU
+- VM.Config.Cloudinit
+- VM.Config.Disk
+- VM.Config.HWType
+- VM.Config.Memory
+- VM.Config.Network
+- VM.Config.Options
+- VM.PowerMgmt
 
 ## Firewall
 
