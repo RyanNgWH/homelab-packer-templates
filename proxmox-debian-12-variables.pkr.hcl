@@ -101,7 +101,7 @@ variable "system_bios" {
 
 variable "system_efi_storage" {
   type = string
-  default = "local-lvm"
+  default = "local-zfs"
 }
 
 variable "system_pre_enroll_keys" {
@@ -187,7 +187,7 @@ variable "storage_type" {
 
 variable "storage_pool" {
   type = string
-  default = "local-lvm"
+  default = "local-zfs"
 }
 
 variable "storage_size" {
@@ -244,7 +244,7 @@ variable "template_cloud_init" {
 
 variable "template_cloud_init_storage_pool" {
   type = string
-  default = "local-lvm"
+  default = "local-zfs"
 }
 
 # Boot commmand

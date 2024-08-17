@@ -60,7 +60,7 @@ os_type = "l26"
 # System configuration
 system_bios = "ovmf"
 
-system_efi_storage = "local-lvm"
+system_efi_storage = "local-zfs"
 system_pre_enroll_keys = true
 system_efi_type = "4m"
 
@@ -77,7 +77,7 @@ network_firewall_enabled = true
 
 # Disk configuration
 storage_type = "scsi"
-storage_pool = "local-lvm"
+storage_pool = "local-zfs"
 storage_size = "8G"
 storage_cache_mode = "none"
 storage_io_thread = true
@@ -91,7 +91,7 @@ template_name = "debian-12-template"
 template_description = "Debian 12 template"
 
 template_cloud_init = true
-template_cloud_init_storage_pool = "local-lvm"
+template_cloud_init_storage_pool = "local-zfs"
 
 # Boot command
 boot_wait_time = "5s"
