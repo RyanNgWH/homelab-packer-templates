@@ -1,2 +1,5 @@
 # Local variables configuration file
 config.pkrvars.hcl
+
+# Downloaded iso images
+downloaded_iso_path/
