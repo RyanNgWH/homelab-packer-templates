@@ -28,6 +28,7 @@ An API token with the following permissions has to be created on your Proxmox in
 - Datastore.Audit
 - SDN.Audit
 - SDN.Use
+- Sys.Audit
 - VM.Allocate
 - VM.Audit
 - VM.Config.CDROM
@@ -39,7 +40,6 @@ An API token with the following permissions has to be created on your Proxmox in
 - VM.Config.Network
 - VM.Config.Options
 - VM.Console
-- VM.Monitor
 - VM.PowerMgmt
 
 ## Firewall
