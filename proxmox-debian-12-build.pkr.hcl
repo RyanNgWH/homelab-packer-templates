@@ -1,6 +1,6 @@
-# Proxmox Debian 12
+# Proxmox Debian 13
 # ---
-# Packer template for creating a Debian 12 template on Proxmox
+# Packer template for creating a Debian 13 template on Proxmox
 
 # Plugin
 packer {
@@ -19,7 +19,7 @@ locals {
 
 # Resource definition for the VM template
 # Refer to https://developer.hashicorp.com/packer/integrations/hashicorp/proxmox/latest/components/builder/iso for all available options
-source "proxmox-iso" "debian-12" {
+source "proxmox-iso" "debian-13" {
   # Proxmox connection
   proxmox_url = "${var.proxmox_api_url}"
   username = "${var.proxmox_api_token_id}"
@@ -42,11 +42,13 @@ source "proxmox-iso" "debian-12" {
   ballooning_minimum = "${var.vm_memory_ballooning_min}"
 
   # OS configuration
-  iso_url = "${var.installer_iso_url}"
-  iso_checksum = "${var.installer_iso_checksum}"
-  iso_storage_pool = "${var.installer_storage_pool}"
+  boot_iso {
+    iso_url = "${var.installer_iso_url}"
+    iso_checksum = "${var.installer_iso_checksum}"
+    iso_storage_pool = "${var.installer_storage_pool}"
 
-  unmount_iso = "${var.installer_unmount_iso}"
+    unmount = "${var.installer_unmount_iso}"
+  }
 
   os = "${var.os_type}"
 
@@ -113,8 +115,8 @@ source "proxmox-iso" "debian-12" {
 
 # Build the VM Template
 build {
-  name = "proxmox-debian-12"
-  sources = ["source.proxmox-iso.debian-12"]
+  name = "proxmox-debian-13"
+  sources = ["source.proxmox-iso.debian-13"]
 
   # Setup the VM Template
   provisioner "shell" {
