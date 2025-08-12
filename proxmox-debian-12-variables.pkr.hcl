@@ -1,6 +1,6 @@
-# Proxmox Debian 12
+# Proxmox Debian 13
 # ---
-# Variables for creating a Debian 12 template on Proxmox
+# Variables for creating a Debian 13 template on Proxmox
 
 # Proxmox connection
 variable "proxmox_api_url" {
