@@ -1,4 +1,4 @@
-# Proxmox Debian 12
+# Proxmox Debian 13
 # ---
 # Packer variables for VM template on Proxmox
 # Variable details can be found at https://developer.hashicorp.com/packer/integrations/hashicorp/proxmox/latest/components/builder/iso
@@ -12,8 +12,8 @@ proxmox_api_token_secret = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 proxmox_node = "your-proxmox-node"
 
 # OS configuration
-installer_iso_url = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.5.0-amd64-netinst.iso"
-installer_iso_checksum = "sha512:33c08e56c83d13007e4a5511b9bf2c4926c4aa12fd5dd56d493c0653aecbab380988c5bf1671dbaea75c582827797d98c4a611f7fb2b131fbde2c677d5258ec9"
+installer_iso_url = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.0.0-amd64-netinst.iso"
+installer_iso_checksum = "sha512:069d47e9013cb1d651d30540fe8ef6765e5d60c8a14c8854dfb82e50bbb171255d2e02517024a392e46255dcdd18774f5cbd7e9f3a47aa1b489189475de62675"
 
 # Boot command
 boot_command = [
@@ -38,7 +38,7 @@ provisioner_ssh_private_key_file = "/path/to/your/private/key"
 # Optional variables (default values are specified below)
 # ---
 # VM configuration
-vm_name = "debian-12-template"
+vm_name = "debian-13-template"
 vm_id = 99999
 
 # CPU configuration
@@ -87,8 +87,8 @@ storage_emulate_ssd = true
 storage_scsi_controller = "virtio-scsi-single"
 
 # Template configuration
-template_name = "debian-12-template"
-template_description = "Debian 12 template"
+template_name = "debian-13-template"
+template_description = "Debian 13 template"
 
 template_cloud_init = true
 template_cloud_init_storage_pool = "local-zfs"
